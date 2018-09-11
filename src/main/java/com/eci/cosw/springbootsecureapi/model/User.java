@@ -7,7 +7,7 @@ package com.eci.cosw.springbootsecureapi.model;
 public class User
 {
 
-    private long id;
+    private int id;
 
     private String email;
 
@@ -32,13 +32,17 @@ public class User
         this.lastname = lastname;
     }
 
+    public User(String email, String password) {
+        this.password = password;
+        this.email = email;
+    }
 
-    public long getId()
+    public int getId()
     {
         return id;
     }
 
-    public void setId( long id )
+    public void setId( int id )
     {
         this.id = id;
     }

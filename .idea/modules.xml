@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/spring-boot-secure-api-react.iml" filepath="$PROJECT_DIR$/spring-boot-secure-api-react.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-boot-secure-api-react_main.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-boot-secure-api-react_main.iml" group="spring-boot-secure-api-react" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-boot-secure-api-react_test.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-boot-secure-api-react_test.iml" group="spring-boot-secure-api-react" />
     </modules>
   </component>
 </project>
