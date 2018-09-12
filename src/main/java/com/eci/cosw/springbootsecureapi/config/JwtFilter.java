@@ -40,6 +40,8 @@ public class JwtFilter
 
             final String token = authHeader.substring(7);
 
+            System.out.println("THIIIIIIIIIIIIS IS ---------------------------------->"+ token.toString());
+
             try {
                 final Claims claims = Jwts.parser().setSigningKey("secretkey").parseClaimsJws(token).getBody();
                 request.setAttribute("claims", claims);

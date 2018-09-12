@@ -28,7 +28,7 @@ public class UserServiceImpl
     @PostConstruct
     private void populateSampleData()
     {
-        users.add( new User( "juan@cosw.com", "qwerty") );
+        users.add( new User( "xyz", "password") );
     }
 
 

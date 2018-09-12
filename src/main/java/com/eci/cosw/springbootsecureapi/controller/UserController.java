@@ -53,7 +53,7 @@ public class UserController
             throw new ServletException( "Invalid login. Please check your name and password." );
         }
 
-        jwtToken = Jwts.builder().setSubject( "abc" ).claim( "roles", "user" ).setIssuedAt( new Date() ).signWith(
+        jwtToken = Jwts.builder().setSubject( email ).claim( "roles", "user" ).setIssuedAt( new Date() ).signWith(
             SignatureAlgorithm.HS256, "secretkey" ).compact();
 
         return new Token( jwtToken );
