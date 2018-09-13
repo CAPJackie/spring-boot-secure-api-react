@@ -9,7 +9,6 @@ import javax.validation.constraints.Max;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping( "api" )
 public class TodoController {
 
@@ -17,16 +16,16 @@ public class TodoController {
     @Autowired
     private TodoService ts;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping( value = "/todos", method = RequestMethod.GET )
     public List<Todo> getTodoList(){
         return ts.getTodoList();
     }
 
+
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping( value = "/todos", method = RequestMethod.POST )
     public void addTodo(@RequestBody Todo todo){
-        System.out.println(todo.getText());
-        System.out.println(todo.getPriority());
-        System.out.println(todo.getDueDate());
         ts.addTodo(todo);
     }
 }

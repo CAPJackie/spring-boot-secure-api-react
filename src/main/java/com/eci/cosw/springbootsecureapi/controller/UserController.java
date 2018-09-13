@@ -15,7 +15,6 @@ import java.util.Date;
  * 8/21/17.
  */
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping( "user" )
 public class UserController
 {
@@ -23,6 +22,7 @@ public class UserController
     @Autowired
     private UserService userService;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping( value = "/login", method = RequestMethod.POST )
     public Token login( @RequestBody User login )
         throws ServletException
@@ -30,15 +30,15 @@ public class UserController
 
         String jwtToken = "";
 
-        if ( login.getEmail() == null || login.getPassword() == null )
+        if ( login.getUsername() == null || login.getPassword() == null )
         {
             throw new ServletException( "Please fill in email and password" );
         }
 
-        String email = login.getEmail();
+        String username = login.getUsername();
         String password = login.getPassword();
 
-        User user = userService.findUserByEmail( email );
+        User user = userService.findUserByUsername( username );
 
         if ( user == null )
         {
@@ -53,7 +53,7 @@ public class UserController
             throw new ServletException( "Invalid login. Please check your name and password." );
         }
 
-        jwtToken = Jwts.builder().setSubject( email ).claim( "roles", "user" ).setIssuedAt( new Date() ).signWith(
+        jwtToken = Jwts.builder().setSubject( username ).claim( "roles", "user" ).setIssuedAt( new Date() ).signWith(
             SignatureAlgorithm.HS256, "secretkey" ).compact();
 
         return new Token( jwtToken );

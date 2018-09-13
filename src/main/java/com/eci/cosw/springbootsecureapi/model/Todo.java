@@ -7,6 +7,11 @@ public class Todo {
     private String text;
     private Date dueDate;
 
+
+    public Todo(){
+
+    }
+
     public Todo (int priority, String text, Date dueDate){
         this.priority = priority;
         this.text = text;
